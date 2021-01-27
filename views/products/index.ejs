@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products</title>
+    <title> Products</title>
 </head>
 <body>
-    <h1>All Products</h1>
+    <h1><%= category[0].toUpperCase() + category.slice(1)%> Products</h1>
     <ul>
         <% for(let product of products) { %>
             <li><a href="<%= `/products/${product.id}`%>" style="color: black; text-decoration: none ;"><%= `\$${product.price.toFixed(2)} ${product.name} `%></a></li>
         <% } %>
     </ul>
     <a href="/products/new"><button>Add New Item</button></a>
+    <% if( category !== 'All'){ %>
+        <a href="/products"><button>All Products</button></a>
+    <% } %>
     
 </body>
 </html>
